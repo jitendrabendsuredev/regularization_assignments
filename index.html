@@ -1,94 +1,664 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Regularization Practical Lab</title>
-<style>*{box-sizing:border-box}body{margin:0;background:#07131f;color:#eef8ff;font-family:Segoe UI,Arial}main{max-width:1050px;margin:auto;padding:40px 20px}header,article{background:#0c2233;border:1px solid #31536a;border-radius:22px;padding:28px;margin-bottom:20px}h1{font-size:clamp(38px,6vw,64px);margin:5px 0}header p,.tasks{color:#c9dce7;line-height:1.7}small{color:#75d9ff;font-weight:bold;letter-spacing:1.5px}.schema{background:#071721;padding:15px;border-radius:12px;margin:15px 0}.schema span{display:inline-block;background:#173b4e;color:#c5edff;padding:6px 9px;border-radius:7px;margin:7px 5px 0 0;font-size:13px}a,button{display:inline-block;border:0;text-decoration:none;color:#fff;font-weight:bold;padding:12px 16px;border-radius:9px;margin:5px 7px 5px 0;cursor:pointer}a{background:#17765e}button{background:#1c7398}.tasks{display:none;background:#06131d;padding:15px;border-radius:12px;margin-top:12px}</style></head>
-<body><main><header><small>ML • PRACTICAL LAB</small><h1>Regularization — 10 Practical Assignments</h1><p>प्रत्येक problem साठी वेगळी 300-row CSV file आहे. CSV download करून Colab/Jupyter मध्ये direct practical करा.</p><a href="regularization_all_datasets.zip" download>⬇ Download All 10 CSV Files</a></header><article><small>PRACTICAL 01 • 300 ROWS</small><h2>House Price Prediction</h2>
-<div class="schema"><b>Features:</b><div><span>Area</span><span>Bedrooms</span><span>HouseAge</span><span>DistanceFromCity</span><span>LocationScore</span></div><p><b>Target:</b> Price</p></div>
-<a href="01_house_price.csv" download>⬇ Download CSV Dataset</a>
-<button onclick="tog('x1',this)">Show Tasks</button>
-<div class="tasks" id="x1"><ol>
-<li>Load CSV with pandas and inspect data.</li><li>Check null values and statistics.</li><li>Create X and y.</li>
-<li>Train-test split 80:20.</li><li>Use StandardScaler.</li><li>Train Linear Regression baseline.</li>
-<li>Train Ridge and Lasso.</li><li>Compare MAE, RMSE and R².</li>
-<li>Test alpha = 0.01, 0.1, 1, 10, 100.</li><li>Compare coefficients and write a business conclusion.</li>
-</ol></div></article><article><small>PRACTICAL 02 • 300 ROWS</small><h2>Employee Salary Prediction</h2>
-<div class="schema"><b>Features:</b><div><span>Experience</span><span>SkillScore</span><span>Projects</span><span>Certifications</span><span>InterviewScore</span></div><p><b>Target:</b> Salary</p></div>
-<a href="02_employee_salary.csv" download>⬇ Download CSV Dataset</a>
-<button onclick="tog('x2',this)">Show Tasks</button>
-<div class="tasks" id="x2"><ol>
-<li>Load CSV with pandas and inspect data.</li><li>Check null values and statistics.</li><li>Create X and y.</li>
-<li>Train-test split 80:20.</li><li>Use StandardScaler.</li><li>Train Linear Regression baseline.</li>
-<li>Train Ridge and Lasso.</li><li>Compare MAE, RMSE and R².</li>
-<li>Test alpha = 0.01, 0.1, 1, 10, 100.</li><li>Compare coefficients and write a business conclusion.</li>
-</ol></div></article><article><small>PRACTICAL 03 • 300 ROWS</small><h2>Used Car Price Prediction</h2>
-<div class="schema"><b>Features:</b><div><span>CarAge</span><span>KMDriven</span><span>Mileage</span><span>EngineCC</span><span>OwnerCount</span></div><p><b>Target:</b> SellingPrice</p></div>
-<a href="03_used_car_price.csv" download>⬇ Download CSV Dataset</a>
-<button onclick="tog('x3',this)">Show Tasks</button>
-<div class="tasks" id="x3"><ol>
-<li>Load CSV with pandas and inspect data.</li><li>Check null values and statistics.</li><li>Create X and y.</li>
-<li>Train-test split 80:20.</li><li>Use StandardScaler.</li><li>Train Linear Regression baseline.</li>
-<li>Train Ridge and Lasso.</li><li>Compare MAE, RMSE and R².</li>
-<li>Test alpha = 0.01, 0.1, 1, 10, 100.</li><li>Compare coefficients and write a business conclusion.</li>
-</ol></div></article><article><small>PRACTICAL 04 • 300 ROWS</small><h2>Insurance Cost Prediction</h2>
-<div class="schema"><b>Features:</b><div><span>Age</span><span>BMI</span><span>Children</span><span>ExerciseScore</span><span>RiskScore</span></div><p><b>Target:</b> InsuranceCost</p></div>
-<a href="04_insurance_cost.csv" download>⬇ Download CSV Dataset</a>
-<button onclick="tog('x4',this)">Show Tasks</button>
-<div class="tasks" id="x4"><ol>
-<li>Load CSV with pandas and inspect data.</li><li>Check null values and statistics.</li><li>Create X and y.</li>
-<li>Train-test split 80:20.</li><li>Use StandardScaler.</li><li>Train Linear Regression baseline.</li>
-<li>Train Ridge and Lasso.</li><li>Compare MAE, RMSE and R².</li>
-<li>Test alpha = 0.01, 0.1, 1, 10, 100.</li><li>Compare coefficients and write a business conclusion.</li>
-</ol></div></article><article><small>PRACTICAL 05 • 300 ROWS</small><h2>Advertising Sales Prediction</h2>
-<div class="schema"><b>Features:</b><div><span>TVAds</span><span>SocialMediaAds</span><span>SearchAds</span><span>EmailCampaigns</span><span>Discount</span></div><p><b>Target:</b> Sales</p></div>
-<a href="05_advertising_sales.csv" download>⬇ Download CSV Dataset</a>
-<button onclick="tog('x5',this)">Show Tasks</button>
-<div class="tasks" id="x5"><ol>
-<li>Load CSV with pandas and inspect data.</li><li>Check null values and statistics.</li><li>Create X and y.</li>
-<li>Train-test split 80:20.</li><li>Use StandardScaler.</li><li>Train Linear Regression baseline.</li>
-<li>Train Ridge and Lasso.</li><li>Compare MAE, RMSE and R².</li>
-<li>Test alpha = 0.01, 0.1, 1, 10, 100.</li><li>Compare coefficients and write a business conclusion.</li>
-</ol></div></article><article><small>PRACTICAL 06 • 300 ROWS</small><h2>Student Score Prediction</h2>
-<div class="schema"><b>Features:</b><div><span>StudyHours</span><span>Attendance</span><span>Assignments</span><span>PreviousScore</span><span>PracticeTests</span></div><p><b>Target:</b> FinalScore</p></div>
-<a href="06_student_score.csv" download>⬇ Download CSV Dataset</a>
-<button onclick="tog('x6',this)">Show Tasks</button>
-<div class="tasks" id="x6"><ol>
-<li>Load CSV with pandas and inspect data.</li><li>Check null values and statistics.</li><li>Create X and y.</li>
-<li>Train-test split 80:20.</li><li>Use StandardScaler.</li><li>Train Linear Regression baseline.</li>
-<li>Train Ridge and Lasso.</li><li>Compare MAE, RMSE and R².</li>
-<li>Test alpha = 0.01, 0.1, 1, 10, 100.</li><li>Compare coefficients and write a business conclusion.</li>
-</ol></div></article><article><small>PRACTICAL 07 • 300 ROWS</small><h2>Rental Price Prediction</h2>
-<div class="schema"><b>Features:</b><div><span>Area</span><span>Bedrooms</span><span>Distance</span><span>Floor</span><span>AmenityScore</span></div><p><b>Target:</b> MonthlyRent</p></div>
-<a href="07_rental_price.csv" download>⬇ Download CSV Dataset</a>
-<button onclick="tog('x7',this)">Show Tasks</button>
-<div class="tasks" id="x7"><ol>
-<li>Load CSV with pandas and inspect data.</li><li>Check null values and statistics.</li><li>Create X and y.</li>
-<li>Train-test split 80:20.</li><li>Use StandardScaler.</li><li>Train Linear Regression baseline.</li>
-<li>Train Ridge and Lasso.</li><li>Compare MAE, RMSE and R².</li>
-<li>Test alpha = 0.01, 0.1, 1, 10, 100.</li><li>Compare coefficients and write a business conclusion.</li>
-</ol></div></article><article><small>PRACTICAL 08 • 300 ROWS</small><h2>Startup Profit Prediction</h2>
-<div class="schema"><b>Features:</b><div><span>RDSpend</span><span>MarketingSpend</span><span>EmployeeCount</span><span>MarketScore</span><span>OperationalCost</span></div><p><b>Target:</b> Profit</p></div>
-<a href="08_startup_profit.csv" download>⬇ Download CSV Dataset</a>
-<button onclick="tog('x8',this)">Show Tasks</button>
-<div class="tasks" id="x8"><ol>
-<li>Load CSV with pandas and inspect data.</li><li>Check null values and statistics.</li><li>Create X and y.</li>
-<li>Train-test split 80:20.</li><li>Use StandardScaler.</li><li>Train Linear Regression baseline.</li>
-<li>Train Ridge and Lasso.</li><li>Compare MAE, RMSE and R².</li>
-<li>Test alpha = 0.01, 0.1, 1, 10, 100.</li><li>Compare coefficients and write a business conclusion.</li>
-</ol></div></article><article><small>PRACTICAL 09 • 300 ROWS</small><h2>Ecommerce Revenue Prediction</h2>
-<div class="schema"><b>Features:</b><div><span>Visitors</span><span>AdSpend</span><span>AvgSessionTime</span><span>ConversionRate</span><span>DiscountRate</span></div><p><b>Target:</b> Revenue</p></div>
-<a href="09_ecommerce_revenue.csv" download>⬇ Download CSV Dataset</a>
-<button onclick="tog('x9',this)">Show Tasks</button>
-<div class="tasks" id="x9"><ol>
-<li>Load CSV with pandas and inspect data.</li><li>Check null values and statistics.</li><li>Create X and y.</li>
-<li>Train-test split 80:20.</li><li>Use StandardScaler.</li><li>Train Linear Regression baseline.</li>
-<li>Train Ridge and Lasso.</li><li>Compare MAE, RMSE and R².</li>
-<li>Test alpha = 0.01, 0.1, 1, 10, 100.</li><li>Compare coefficients and write a business conclusion.</li>
-</ol></div></article><article><small>PRACTICAL 10 • 300 ROWS</small><h2>Delivery Cost Prediction</h2>
-<div class="schema"><b>Features:</b><div><span>DistanceKM</span><span>WeightKG</span><span>TrafficScore</span><span>FuelPrice</span><span>DeliveryTime</span></div><p><b>Target:</b> DeliveryCost</p></div>
-<a href="10_delivery_cost.csv" download>⬇ Download CSV Dataset</a>
-<button onclick="tog('x10',this)">Show Tasks</button>
-<div class="tasks" id="x10"><ol>
-<li>Load CSV with pandas and inspect data.</li><li>Check null values and statistics.</li><li>Create X and y.</li>
-<li>Train-test split 80:20.</li><li>Use StandardScaler.</li><li>Train Linear Regression baseline.</li>
-<li>Train Ridge and Lasso.</li><li>Compare MAE, RMSE and R².</li>
-<li>Test alpha = 0.01, 0.1, 1, 10, 100.</li><li>Compare coefficients and write a business conclusion.</li>
-</ol></div></article></main>
-<script>function tog(i,b){let e=document.getElementById(i),o=e.style.display==='block';e.style.display=o?'none':'block';b.innerText=o?'Show Tasks':'Hide Tasks'}</script></body></html>
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Regularization Lab</title>
+<style>*{box-sizing:border-box}body{margin:0;background:#07131f;color:#eef8ff;font-family:Segoe UI,Arial}main{max-width:1080px;margin:auto;padding:38px 20px}header,article{background:#0b2132;border:1px solid #315169;border-radius:22px;padding:27px;margin-bottom:20px}h1{font-size:clamp(40px,6vw,65px);margin:6px 0}small{color:#76dcff;letter-spacing:2px;font-weight:bold}header p,.task{color:#c9dce7;line-height:1.7}.schema{background:#061620;padding:15px;border-radius:12px;margin:14px 0}.schema span{display:inline-block;background:#173a4d;padding:6px 9px;border-radius:7px;margin:6px 4px;color:#c5efff}a,button{display:inline-block;border:0;border-radius:9px;padding:11px 15px;margin:4px;color:#fff;text-decoration:none;font-weight:bold;cursor:pointer}a{background:#17765e}button{background:#1c7398}.purple{background:#7449a5}.hide{display:none;margin-top:15px}.task{background:#06151f;padding:15px;border-radius:12px}.sol{background:#030b11;padding:17px;border-radius:12px;border:1px solid #29495d}pre{overflow:auto;white-space:pre}code{font-family:Consolas,monospace;color:#b9ecff;line-height:1.5}</style></head><body><main>
+<header><small>ML • PRACTICAL LAB</small><h1>Regularization — 10 Practical Assignments</h1><p>प्रत्येक assignment मध्ये CSV dataset + tasks + <b>hidden complete Python solution</b> आहे.</p><a href="regularization_all_datasets.zip" download>⬇ Download All CSVs</a></header><article><small>PRACTICAL 01</small><h2>House Price Prediction</h2>
+<div class="schema"><b>Features:</b><div><span>Area</span> <span>Bedrooms</span> <span>HouseAge</span> <span>DistanceFromCity</span> <span>LocationScore</span></div><p><b>Target:</b> Price</p></div>
+<a href="01_house_price.csv" download>⬇ Download CSV</a>
+<button onclick="tog('t1',this,'Show Tasks','Hide Tasks')">Show Tasks</button>
+<button class="purple" onclick="tog('s1',this,'Show Python Solution','Hide Python Solution')">Show Python Solution</button>
+<div id="t1" class="hide task"><ol><li>Load and inspect CSV.</li><li>Create X/y and 80:20 split.</li><li>Scale features.</li><li>Train Linear, Ridge and Lasso.</li><li>Compare MAE, RMSE, train/test R².</li><li>Tune alpha using CV.</li><li>Compare coefficients and write conclusion.</li></ol></div>
+<div id="s1" class="hide sol"><h3>Complete Python Solution</h3><pre><code>import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import LinearRegression, Ridge, Lasso
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+
+df = pd.read_csv(&quot;01_house_price.csv&quot;)
+print(df.head())
+print(df.isnull().sum())
+
+X = df[[&#x27;Area&#x27;, &#x27;Bedrooms&#x27;, &#x27;HouseAge&#x27;, &#x27;DistanceFromCity&#x27;, &#x27;LocationScore&#x27;]]
+y = df[&quot;Price&quot;]
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.20, random_state=42
+)
+
+models = {
+ &quot;Linear&quot;: Pipeline([(&quot;scale&quot;, StandardScaler()),(&quot;model&quot;, LinearRegression())]),
+ &quot;Ridge&quot;: Pipeline([(&quot;scale&quot;, StandardScaler()),(&quot;model&quot;, Ridge(alpha=1.0))]),
+ &quot;Lasso&quot;: Pipeline([(&quot;scale&quot;, StandardScaler()),(&quot;model&quot;, Lasso(alpha=0.1, max_iter=10000))])
+}
+
+for name, model in models.items():
+    model.fit(X_train, y_train)
+    pred = model.predict(X_test)
+    print(&quot;\n&quot;, name)
+    print(&quot;Train R2:&quot;, model.score(X_train, y_train))
+    print(&quot;Test R2:&quot;, r2_score(y_test, pred))
+    print(&quot;MAE:&quot;, mean_absolute_error(y_test, pred))
+    print(&quot;RMSE:&quot;, np.sqrt(mean_squared_error(y_test, pred)))
+
+# Ridge alpha tuning
+ridge = Pipeline([(&quot;scale&quot;,StandardScaler()),(&quot;model&quot;,Ridge())])
+grid = GridSearchCV(
+    ridge,
+    {&quot;model__alpha&quot;:[0.01,0.1,1,10,100]},
+    cv=5, scoring=&quot;r2&quot;
+)
+grid.fit(X_train,y_train)
+print(&quot;Best Ridge Alpha:&quot;,grid.best_params_)
+print(&quot;Ridge Test R2:&quot;,grid.score(X_test,y_test))
+
+# Lasso alpha tuning
+lasso = Pipeline([(&quot;scale&quot;,StandardScaler()),(&quot;model&quot;,Lasso(max_iter=10000))])
+lgrid = GridSearchCV(
+    lasso,
+    {&quot;model__alpha&quot;:[0.01,0.1,1,10,100]},
+    cv=5, scoring=&quot;r2&quot;
+)
+lgrid.fit(X_train,y_train)
+print(&quot;Best Lasso Alpha:&quot;,lgrid.best_params_)
+print(&quot;Lasso Test R2:&quot;,lgrid.score(X_test,y_test))
+
+# Coefficient comparison
+print(&quot;\nRidge coefficients:&quot;)
+print(dict(zip(X.columns,grid.best_estimator_.named_steps[&quot;model&quot;].coef_)))
+print(&quot;\nLasso coefficients:&quot;)
+print(dict(zip(X.columns,lgrid.best_estimator_.named_steps[&quot;model&quot;].coef_)))</code></pre></div></article><article><small>PRACTICAL 02</small><h2>Employee Salary Prediction</h2>
+<div class="schema"><b>Features:</b><div><span>Experience</span> <span>SkillScore</span> <span>Projects</span> <span>Certifications</span> <span>InterviewScore</span></div><p><b>Target:</b> Salary</p></div>
+<a href="02_employee_salary.csv" download>⬇ Download CSV</a>
+<button onclick="tog('t2',this,'Show Tasks','Hide Tasks')">Show Tasks</button>
+<button class="purple" onclick="tog('s2',this,'Show Python Solution','Hide Python Solution')">Show Python Solution</button>
+<div id="t2" class="hide task"><ol><li>Load and inspect CSV.</li><li>Create X/y and 80:20 split.</li><li>Scale features.</li><li>Train Linear, Ridge and Lasso.</li><li>Compare MAE, RMSE, train/test R².</li><li>Tune alpha using CV.</li><li>Compare coefficients and write conclusion.</li></ol></div>
+<div id="s2" class="hide sol"><h3>Complete Python Solution</h3><pre><code>import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import LinearRegression, Ridge, Lasso
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+
+df = pd.read_csv(&quot;02_employee_salary.csv&quot;)
+print(df.head())
+print(df.isnull().sum())
+
+X = df[[&#x27;Experience&#x27;, &#x27;SkillScore&#x27;, &#x27;Projects&#x27;, &#x27;Certifications&#x27;, &#x27;InterviewScore&#x27;]]
+y = df[&quot;Salary&quot;]
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.20, random_state=42
+)
+
+models = {
+ &quot;Linear&quot;: Pipeline([(&quot;scale&quot;, StandardScaler()),(&quot;model&quot;, LinearRegression())]),
+ &quot;Ridge&quot;: Pipeline([(&quot;scale&quot;, StandardScaler()),(&quot;model&quot;, Ridge(alpha=1.0))]),
+ &quot;Lasso&quot;: Pipeline([(&quot;scale&quot;, StandardScaler()),(&quot;model&quot;, Lasso(alpha=0.1, max_iter=10000))])
+}
+
+for name, model in models.items():
+    model.fit(X_train, y_train)
+    pred = model.predict(X_test)
+    print(&quot;\n&quot;, name)
+    print(&quot;Train R2:&quot;, model.score(X_train, y_train))
+    print(&quot;Test R2:&quot;, r2_score(y_test, pred))
+    print(&quot;MAE:&quot;, mean_absolute_error(y_test, pred))
+    print(&quot;RMSE:&quot;, np.sqrt(mean_squared_error(y_test, pred)))
+
+# Ridge alpha tuning
+ridge = Pipeline([(&quot;scale&quot;,StandardScaler()),(&quot;model&quot;,Ridge())])
+grid = GridSearchCV(
+    ridge,
+    {&quot;model__alpha&quot;:[0.01,0.1,1,10,100]},
+    cv=5, scoring=&quot;r2&quot;
+)
+grid.fit(X_train,y_train)
+print(&quot;Best Ridge Alpha:&quot;,grid.best_params_)
+print(&quot;Ridge Test R2:&quot;,grid.score(X_test,y_test))
+
+# Lasso alpha tuning
+lasso = Pipeline([(&quot;scale&quot;,StandardScaler()),(&quot;model&quot;,Lasso(max_iter=10000))])
+lgrid = GridSearchCV(
+    lasso,
+    {&quot;model__alpha&quot;:[0.01,0.1,1,10,100]},
+    cv=5, scoring=&quot;r2&quot;
+)
+lgrid.fit(X_train,y_train)
+print(&quot;Best Lasso Alpha:&quot;,lgrid.best_params_)
+print(&quot;Lasso Test R2:&quot;,lgrid.score(X_test,y_test))
+
+# Coefficient comparison
+print(&quot;\nRidge coefficients:&quot;)
+print(dict(zip(X.columns,grid.best_estimator_.named_steps[&quot;model&quot;].coef_)))
+print(&quot;\nLasso coefficients:&quot;)
+print(dict(zip(X.columns,lgrid.best_estimator_.named_steps[&quot;model&quot;].coef_)))</code></pre></div></article><article><small>PRACTICAL 03</small><h2>Used Car Price Prediction</h2>
+<div class="schema"><b>Features:</b><div><span>CarAge</span> <span>KMDriven</span> <span>Mileage</span> <span>EngineCC</span> <span>OwnerCount</span></div><p><b>Target:</b> SellingPrice</p></div>
+<a href="03_used_car_price.csv" download>⬇ Download CSV</a>
+<button onclick="tog('t3',this,'Show Tasks','Hide Tasks')">Show Tasks</button>
+<button class="purple" onclick="tog('s3',this,'Show Python Solution','Hide Python Solution')">Show Python Solution</button>
+<div id="t3" class="hide task"><ol><li>Load and inspect CSV.</li><li>Create X/y and 80:20 split.</li><li>Scale features.</li><li>Train Linear, Ridge and Lasso.</li><li>Compare MAE, RMSE, train/test R².</li><li>Tune alpha using CV.</li><li>Compare coefficients and write conclusion.</li></ol></div>
+<div id="s3" class="hide sol"><h3>Complete Python Solution</h3><pre><code>import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import LinearRegression, Ridge, Lasso
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+
+df = pd.read_csv(&quot;03_used_car_price.csv&quot;)
+print(df.head())
+print(df.isnull().sum())
+
+X = df[[&#x27;CarAge&#x27;, &#x27;KMDriven&#x27;, &#x27;Mileage&#x27;, &#x27;EngineCC&#x27;, &#x27;OwnerCount&#x27;]]
+y = df[&quot;SellingPrice&quot;]
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.20, random_state=42
+)
+
+models = {
+ &quot;Linear&quot;: Pipeline([(&quot;scale&quot;, StandardScaler()),(&quot;model&quot;, LinearRegression())]),
+ &quot;Ridge&quot;: Pipeline([(&quot;scale&quot;, StandardScaler()),(&quot;model&quot;, Ridge(alpha=1.0))]),
+ &quot;Lasso&quot;: Pipeline([(&quot;scale&quot;, StandardScaler()),(&quot;model&quot;, Lasso(alpha=0.1, max_iter=10000))])
+}
+
+for name, model in models.items():
+    model.fit(X_train, y_train)
+    pred = model.predict(X_test)
+    print(&quot;\n&quot;, name)
+    print(&quot;Train R2:&quot;, model.score(X_train, y_train))
+    print(&quot;Test R2:&quot;, r2_score(y_test, pred))
+    print(&quot;MAE:&quot;, mean_absolute_error(y_test, pred))
+    print(&quot;RMSE:&quot;, np.sqrt(mean_squared_error(y_test, pred)))
+
+# Ridge alpha tuning
+ridge = Pipeline([(&quot;scale&quot;,StandardScaler()),(&quot;model&quot;,Ridge())])
+grid = GridSearchCV(
+    ridge,
+    {&quot;model__alpha&quot;:[0.01,0.1,1,10,100]},
+    cv=5, scoring=&quot;r2&quot;
+)
+grid.fit(X_train,y_train)
+print(&quot;Best Ridge Alpha:&quot;,grid.best_params_)
+print(&quot;Ridge Test R2:&quot;,grid.score(X_test,y_test))
+
+# Lasso alpha tuning
+lasso = Pipeline([(&quot;scale&quot;,StandardScaler()),(&quot;model&quot;,Lasso(max_iter=10000))])
+lgrid = GridSearchCV(
+    lasso,
+    {&quot;model__alpha&quot;:[0.01,0.1,1,10,100]},
+    cv=5, scoring=&quot;r2&quot;
+)
+lgrid.fit(X_train,y_train)
+print(&quot;Best Lasso Alpha:&quot;,lgrid.best_params_)
+print(&quot;Lasso Test R2:&quot;,lgrid.score(X_test,y_test))
+
+# Coefficient comparison
+print(&quot;\nRidge coefficients:&quot;)
+print(dict(zip(X.columns,grid.best_estimator_.named_steps[&quot;model&quot;].coef_)))
+print(&quot;\nLasso coefficients:&quot;)
+print(dict(zip(X.columns,lgrid.best_estimator_.named_steps[&quot;model&quot;].coef_)))</code></pre></div></article><article><small>PRACTICAL 04</small><h2>Insurance Cost Prediction</h2>
+<div class="schema"><b>Features:</b><div><span>Age</span> <span>BMI</span> <span>Children</span> <span>ExerciseScore</span> <span>RiskScore</span></div><p><b>Target:</b> InsuranceCost</p></div>
+<a href="04_insurance_cost.csv" download>⬇ Download CSV</a>
+<button onclick="tog('t4',this,'Show Tasks','Hide Tasks')">Show Tasks</button>
+<button class="purple" onclick="tog('s4',this,'Show Python Solution','Hide Python Solution')">Show Python Solution</button>
+<div id="t4" class="hide task"><ol><li>Load and inspect CSV.</li><li>Create X/y and 80:20 split.</li><li>Scale features.</li><li>Train Linear, Ridge and Lasso.</li><li>Compare MAE, RMSE, train/test R².</li><li>Tune alpha using CV.</li><li>Compare coefficients and write conclusion.</li></ol></div>
+<div id="s4" class="hide sol"><h3>Complete Python Solution</h3><pre><code>import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import LinearRegression, Ridge, Lasso
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+
+df = pd.read_csv(&quot;04_insurance_cost.csv&quot;)
+print(df.head())
+print(df.isnull().sum())
+
+X = df[[&#x27;Age&#x27;, &#x27;BMI&#x27;, &#x27;Children&#x27;, &#x27;ExerciseScore&#x27;, &#x27;RiskScore&#x27;]]
+y = df[&quot;InsuranceCost&quot;]
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.20, random_state=42
+)
+
+models = {
+ &quot;Linear&quot;: Pipeline([(&quot;scale&quot;, StandardScaler()),(&quot;model&quot;, LinearRegression())]),
+ &quot;Ridge&quot;: Pipeline([(&quot;scale&quot;, StandardScaler()),(&quot;model&quot;, Ridge(alpha=1.0))]),
+ &quot;Lasso&quot;: Pipeline([(&quot;scale&quot;, StandardScaler()),(&quot;model&quot;, Lasso(alpha=0.1, max_iter=10000))])
+}
+
+for name, model in models.items():
+    model.fit(X_train, y_train)
+    pred = model.predict(X_test)
+    print(&quot;\n&quot;, name)
+    print(&quot;Train R2:&quot;, model.score(X_train, y_train))
+    print(&quot;Test R2:&quot;, r2_score(y_test, pred))
+    print(&quot;MAE:&quot;, mean_absolute_error(y_test, pred))
+    print(&quot;RMSE:&quot;, np.sqrt(mean_squared_error(y_test, pred)))
+
+# Ridge alpha tuning
+ridge = Pipeline([(&quot;scale&quot;,StandardScaler()),(&quot;model&quot;,Ridge())])
+grid = GridSearchCV(
+    ridge,
+    {&quot;model__alpha&quot;:[0.01,0.1,1,10,100]},
+    cv=5, scoring=&quot;r2&quot;
+)
+grid.fit(X_train,y_train)
+print(&quot;Best Ridge Alpha:&quot;,grid.best_params_)
+print(&quot;Ridge Test R2:&quot;,grid.score(X_test,y_test))
+
+# Lasso alpha tuning
+lasso = Pipeline([(&quot;scale&quot;,StandardScaler()),(&quot;model&quot;,Lasso(max_iter=10000))])
+lgrid = GridSearchCV(
+    lasso,
+    {&quot;model__alpha&quot;:[0.01,0.1,1,10,100]},
+    cv=5, scoring=&quot;r2&quot;
+)
+lgrid.fit(X_train,y_train)
+print(&quot;Best Lasso Alpha:&quot;,lgrid.best_params_)
+print(&quot;Lasso Test R2:&quot;,lgrid.score(X_test,y_test))
+
+# Coefficient comparison
+print(&quot;\nRidge coefficients:&quot;)
+print(dict(zip(X.columns,grid.best_estimator_.named_steps[&quot;model&quot;].coef_)))
+print(&quot;\nLasso coefficients:&quot;)
+print(dict(zip(X.columns,lgrid.best_estimator_.named_steps[&quot;model&quot;].coef_)))</code></pre></div></article><article><small>PRACTICAL 05</small><h2>Advertising Sales Prediction</h2>
+<div class="schema"><b>Features:</b><div><span>TVAds</span> <span>SocialMediaAds</span> <span>SearchAds</span> <span>EmailCampaigns</span> <span>Discount</span></div><p><b>Target:</b> Sales</p></div>
+<a href="05_advertising_sales.csv" download>⬇ Download CSV</a>
+<button onclick="tog('t5',this,'Show Tasks','Hide Tasks')">Show Tasks</button>
+<button class="purple" onclick="tog('s5',this,'Show Python Solution','Hide Python Solution')">Show Python Solution</button>
+<div id="t5" class="hide task"><ol><li>Load and inspect CSV.</li><li>Create X/y and 80:20 split.</li><li>Scale features.</li><li>Train Linear, Ridge and Lasso.</li><li>Compare MAE, RMSE, train/test R².</li><li>Tune alpha using CV.</li><li>Compare coefficients and write conclusion.</li></ol></div>
+<div id="s5" class="hide sol"><h3>Complete Python Solution</h3><pre><code>import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import LinearRegression, Ridge, Lasso
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+
+df = pd.read_csv(&quot;05_advertising_sales.csv&quot;)
+print(df.head())
+print(df.isnull().sum())
+
+X = df[[&#x27;TVAds&#x27;, &#x27;SocialMediaAds&#x27;, &#x27;SearchAds&#x27;, &#x27;EmailCampaigns&#x27;, &#x27;Discount&#x27;]]
+y = df[&quot;Sales&quot;]
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.20, random_state=42
+)
+
+models = {
+ &quot;Linear&quot;: Pipeline([(&quot;scale&quot;, StandardScaler()),(&quot;model&quot;, LinearRegression())]),
+ &quot;Ridge&quot;: Pipeline([(&quot;scale&quot;, StandardScaler()),(&quot;model&quot;, Ridge(alpha=1.0))]),
+ &quot;Lasso&quot;: Pipeline([(&quot;scale&quot;, StandardScaler()),(&quot;model&quot;, Lasso(alpha=0.1, max_iter=10000))])
+}
+
+for name, model in models.items():
+    model.fit(X_train, y_train)
+    pred = model.predict(X_test)
+    print(&quot;\n&quot;, name)
+    print(&quot;Train R2:&quot;, model.score(X_train, y_train))
+    print(&quot;Test R2:&quot;, r2_score(y_test, pred))
+    print(&quot;MAE:&quot;, mean_absolute_error(y_test, pred))
+    print(&quot;RMSE:&quot;, np.sqrt(mean_squared_error(y_test, pred)))
+
+# Ridge alpha tuning
+ridge = Pipeline([(&quot;scale&quot;,StandardScaler()),(&quot;model&quot;,Ridge())])
+grid = GridSearchCV(
+    ridge,
+    {&quot;model__alpha&quot;:[0.01,0.1,1,10,100]},
+    cv=5, scoring=&quot;r2&quot;
+)
+grid.fit(X_train,y_train)
+print(&quot;Best Ridge Alpha:&quot;,grid.best_params_)
+print(&quot;Ridge Test R2:&quot;,grid.score(X_test,y_test))
+
+# Lasso alpha tuning
+lasso = Pipeline([(&quot;scale&quot;,StandardScaler()),(&quot;model&quot;,Lasso(max_iter=10000))])
+lgrid = GridSearchCV(
+    lasso,
+    {&quot;model__alpha&quot;:[0.01,0.1,1,10,100]},
+    cv=5, scoring=&quot;r2&quot;
+)
+lgrid.fit(X_train,y_train)
+print(&quot;Best Lasso Alpha:&quot;,lgrid.best_params_)
+print(&quot;Lasso Test R2:&quot;,lgrid.score(X_test,y_test))
+
+# Coefficient comparison
+print(&quot;\nRidge coefficients:&quot;)
+print(dict(zip(X.columns,grid.best_estimator_.named_steps[&quot;model&quot;].coef_)))
+print(&quot;\nLasso coefficients:&quot;)
+print(dict(zip(X.columns,lgrid.best_estimator_.named_steps[&quot;model&quot;].coef_)))</code></pre></div></article><article><small>PRACTICAL 06</small><h2>Student Score Prediction</h2>
+<div class="schema"><b>Features:</b><div><span>StudyHours</span> <span>Attendance</span> <span>Assignments</span> <span>PreviousScore</span> <span>PracticeTests</span></div><p><b>Target:</b> FinalScore</p></div>
+<a href="06_student_score.csv" download>⬇ Download CSV</a>
+<button onclick="tog('t6',this,'Show Tasks','Hide Tasks')">Show Tasks</button>
+<button class="purple" onclick="tog('s6',this,'Show Python Solution','Hide Python Solution')">Show Python Solution</button>
+<div id="t6" class="hide task"><ol><li>Load and inspect CSV.</li><li>Create X/y and 80:20 split.</li><li>Scale features.</li><li>Train Linear, Ridge and Lasso.</li><li>Compare MAE, RMSE, train/test R².</li><li>Tune alpha using CV.</li><li>Compare coefficients and write conclusion.</li></ol></div>
+<div id="s6" class="hide sol"><h3>Complete Python Solution</h3><pre><code>import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import LinearRegression, Ridge, Lasso
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+
+df = pd.read_csv(&quot;06_student_score.csv&quot;)
+print(df.head())
+print(df.isnull().sum())
+
+X = df[[&#x27;StudyHours&#x27;, &#x27;Attendance&#x27;, &#x27;Assignments&#x27;, &#x27;PreviousScore&#x27;, &#x27;PracticeTests&#x27;]]
+y = df[&quot;FinalScore&quot;]
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.20, random_state=42
+)
+
+models = {
+ &quot;Linear&quot;: Pipeline([(&quot;scale&quot;, StandardScaler()),(&quot;model&quot;, LinearRegression())]),
+ &quot;Ridge&quot;: Pipeline([(&quot;scale&quot;, StandardScaler()),(&quot;model&quot;, Ridge(alpha=1.0))]),
+ &quot;Lasso&quot;: Pipeline([(&quot;scale&quot;, StandardScaler()),(&quot;model&quot;, Lasso(alpha=0.1, max_iter=10000))])
+}
+
+for name, model in models.items():
+    model.fit(X_train, y_train)
+    pred = model.predict(X_test)
+    print(&quot;\n&quot;, name)
+    print(&quot;Train R2:&quot;, model.score(X_train, y_train))
+    print(&quot;Test R2:&quot;, r2_score(y_test, pred))
+    print(&quot;MAE:&quot;, mean_absolute_error(y_test, pred))
+    print(&quot;RMSE:&quot;, np.sqrt(mean_squared_error(y_test, pred)))
+
+# Ridge alpha tuning
+ridge = Pipeline([(&quot;scale&quot;,StandardScaler()),(&quot;model&quot;,Ridge())])
+grid = GridSearchCV(
+    ridge,
+    {&quot;model__alpha&quot;:[0.01,0.1,1,10,100]},
+    cv=5, scoring=&quot;r2&quot;
+)
+grid.fit(X_train,y_train)
+print(&quot;Best Ridge Alpha:&quot;,grid.best_params_)
+print(&quot;Ridge Test R2:&quot;,grid.score(X_test,y_test))
+
+# Lasso alpha tuning
+lasso = Pipeline([(&quot;scale&quot;,StandardScaler()),(&quot;model&quot;,Lasso(max_iter=10000))])
+lgrid = GridSearchCV(
+    lasso,
+    {&quot;model__alpha&quot;:[0.01,0.1,1,10,100]},
+    cv=5, scoring=&quot;r2&quot;
+)
+lgrid.fit(X_train,y_train)
+print(&quot;Best Lasso Alpha:&quot;,lgrid.best_params_)
+print(&quot;Lasso Test R2:&quot;,lgrid.score(X_test,y_test))
+
+# Coefficient comparison
+print(&quot;\nRidge coefficients:&quot;)
+print(dict(zip(X.columns,grid.best_estimator_.named_steps[&quot;model&quot;].coef_)))
+print(&quot;\nLasso coefficients:&quot;)
+print(dict(zip(X.columns,lgrid.best_estimator_.named_steps[&quot;model&quot;].coef_)))</code></pre></div></article><article><small>PRACTICAL 07</small><h2>Rental Price Prediction</h2>
+<div class="schema"><b>Features:</b><div><span>Area</span> <span>Bedrooms</span> <span>Distance</span> <span>Floor</span> <span>AmenityScore</span></div><p><b>Target:</b> MonthlyRent</p></div>
+<a href="07_rental_price.csv" download>⬇ Download CSV</a>
+<button onclick="tog('t7',this,'Show Tasks','Hide Tasks')">Show Tasks</button>
+<button class="purple" onclick="tog('s7',this,'Show Python Solution','Hide Python Solution')">Show Python Solution</button>
+<div id="t7" class="hide task"><ol><li>Load and inspect CSV.</li><li>Create X/y and 80:20 split.</li><li>Scale features.</li><li>Train Linear, Ridge and Lasso.</li><li>Compare MAE, RMSE, train/test R².</li><li>Tune alpha using CV.</li><li>Compare coefficients and write conclusion.</li></ol></div>
+<div id="s7" class="hide sol"><h3>Complete Python Solution</h3><pre><code>import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import LinearRegression, Ridge, Lasso
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+
+df = pd.read_csv(&quot;07_rental_price.csv&quot;)
+print(df.head())
+print(df.isnull().sum())
+
+X = df[[&#x27;Area&#x27;, &#x27;Bedrooms&#x27;, &#x27;Distance&#x27;, &#x27;Floor&#x27;, &#x27;AmenityScore&#x27;]]
+y = df[&quot;MonthlyRent&quot;]
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.20, random_state=42
+)
+
+models = {
+ &quot;Linear&quot;: Pipeline([(&quot;scale&quot;, StandardScaler()),(&quot;model&quot;, LinearRegression())]),
+ &quot;Ridge&quot;: Pipeline([(&quot;scale&quot;, StandardScaler()),(&quot;model&quot;, Ridge(alpha=1.0))]),
+ &quot;Lasso&quot;: Pipeline([(&quot;scale&quot;, StandardScaler()),(&quot;model&quot;, Lasso(alpha=0.1, max_iter=10000))])
+}
+
+for name, model in models.items():
+    model.fit(X_train, y_train)
+    pred = model.predict(X_test)
+    print(&quot;\n&quot;, name)
+    print(&quot;Train R2:&quot;, model.score(X_train, y_train))
+    print(&quot;Test R2:&quot;, r2_score(y_test, pred))
+    print(&quot;MAE:&quot;, mean_absolute_error(y_test, pred))
+    print(&quot;RMSE:&quot;, np.sqrt(mean_squared_error(y_test, pred)))
+
+# Ridge alpha tuning
+ridge = Pipeline([(&quot;scale&quot;,StandardScaler()),(&quot;model&quot;,Ridge())])
+grid = GridSearchCV(
+    ridge,
+    {&quot;model__alpha&quot;:[0.01,0.1,1,10,100]},
+    cv=5, scoring=&quot;r2&quot;
+)
+grid.fit(X_train,y_train)
+print(&quot;Best Ridge Alpha:&quot;,grid.best_params_)
+print(&quot;Ridge Test R2:&quot;,grid.score(X_test,y_test))
+
+# Lasso alpha tuning
+lasso = Pipeline([(&quot;scale&quot;,StandardScaler()),(&quot;model&quot;,Lasso(max_iter=10000))])
+lgrid = GridSearchCV(
+    lasso,
+    {&quot;model__alpha&quot;:[0.01,0.1,1,10,100]},
+    cv=5, scoring=&quot;r2&quot;
+)
+lgrid.fit(X_train,y_train)
+print(&quot;Best Lasso Alpha:&quot;,lgrid.best_params_)
+print(&quot;Lasso Test R2:&quot;,lgrid.score(X_test,y_test))
+
+# Coefficient comparison
+print(&quot;\nRidge coefficients:&quot;)
+print(dict(zip(X.columns,grid.best_estimator_.named_steps[&quot;model&quot;].coef_)))
+print(&quot;\nLasso coefficients:&quot;)
+print(dict(zip(X.columns,lgrid.best_estimator_.named_steps[&quot;model&quot;].coef_)))</code></pre></div></article><article><small>PRACTICAL 08</small><h2>Startup Profit Prediction</h2>
+<div class="schema"><b>Features:</b><div><span>RDSpend</span> <span>MarketingSpend</span> <span>EmployeeCount</span> <span>MarketScore</span> <span>OperationalCost</span></div><p><b>Target:</b> Profit</p></div>
+<a href="08_startup_profit.csv" download>⬇ Download CSV</a>
+<button onclick="tog('t8',this,'Show Tasks','Hide Tasks')">Show Tasks</button>
+<button class="purple" onclick="tog('s8',this,'Show Python Solution','Hide Python Solution')">Show Python Solution</button>
+<div id="t8" class="hide task"><ol><li>Load and inspect CSV.</li><li>Create X/y and 80:20 split.</li><li>Scale features.</li><li>Train Linear, Ridge and Lasso.</li><li>Compare MAE, RMSE, train/test R².</li><li>Tune alpha using CV.</li><li>Compare coefficients and write conclusion.</li></ol></div>
+<div id="s8" class="hide sol"><h3>Complete Python Solution</h3><pre><code>import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import LinearRegression, Ridge, Lasso
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+
+df = pd.read_csv(&quot;08_startup_profit.csv&quot;)
+print(df.head())
+print(df.isnull().sum())
+
+X = df[[&#x27;RDSpend&#x27;, &#x27;MarketingSpend&#x27;, &#x27;EmployeeCount&#x27;, &#x27;MarketScore&#x27;, &#x27;OperationalCost&#x27;]]
+y = df[&quot;Profit&quot;]
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.20, random_state=42
+)
+
+models = {
+ &quot;Linear&quot;: Pipeline([(&quot;scale&quot;, StandardScaler()),(&quot;model&quot;, LinearRegression())]),
+ &quot;Ridge&quot;: Pipeline([(&quot;scale&quot;, StandardScaler()),(&quot;model&quot;, Ridge(alpha=1.0))]),
+ &quot;Lasso&quot;: Pipeline([(&quot;scale&quot;, StandardScaler()),(&quot;model&quot;, Lasso(alpha=0.1, max_iter=10000))])
+}
+
+for name, model in models.items():
+    model.fit(X_train, y_train)
+    pred = model.predict(X_test)
+    print(&quot;\n&quot;, name)
+    print(&quot;Train R2:&quot;, model.score(X_train, y_train))
+    print(&quot;Test R2:&quot;, r2_score(y_test, pred))
+    print(&quot;MAE:&quot;, mean_absolute_error(y_test, pred))
+    print(&quot;RMSE:&quot;, np.sqrt(mean_squared_error(y_test, pred)))
+
+# Ridge alpha tuning
+ridge = Pipeline([(&quot;scale&quot;,StandardScaler()),(&quot;model&quot;,Ridge())])
+grid = GridSearchCV(
+    ridge,
+    {&quot;model__alpha&quot;:[0.01,0.1,1,10,100]},
+    cv=5, scoring=&quot;r2&quot;
+)
+grid.fit(X_train,y_train)
+print(&quot;Best Ridge Alpha:&quot;,grid.best_params_)
+print(&quot;Ridge Test R2:&quot;,grid.score(X_test,y_test))
+
+# Lasso alpha tuning
+lasso = Pipeline([(&quot;scale&quot;,StandardScaler()),(&quot;model&quot;,Lasso(max_iter=10000))])
+lgrid = GridSearchCV(
+    lasso,
+    {&quot;model__alpha&quot;:[0.01,0.1,1,10,100]},
+    cv=5, scoring=&quot;r2&quot;
+)
+lgrid.fit(X_train,y_train)
+print(&quot;Best Lasso Alpha:&quot;,lgrid.best_params_)
+print(&quot;Lasso Test R2:&quot;,lgrid.score(X_test,y_test))
+
+# Coefficient comparison
+print(&quot;\nRidge coefficients:&quot;)
+print(dict(zip(X.columns,grid.best_estimator_.named_steps[&quot;model&quot;].coef_)))
+print(&quot;\nLasso coefficients:&quot;)
+print(dict(zip(X.columns,lgrid.best_estimator_.named_steps[&quot;model&quot;].coef_)))</code></pre></div></article><article><small>PRACTICAL 09</small><h2>Ecommerce Revenue Prediction</h2>
+<div class="schema"><b>Features:</b><div><span>Visitors</span> <span>AdSpend</span> <span>AvgSessionTime</span> <span>ConversionRate</span> <span>DiscountRate</span></div><p><b>Target:</b> Revenue</p></div>
+<a href="09_ecommerce_revenue.csv" download>⬇ Download CSV</a>
+<button onclick="tog('t9',this,'Show Tasks','Hide Tasks')">Show Tasks</button>
+<button class="purple" onclick="tog('s9',this,'Show Python Solution','Hide Python Solution')">Show Python Solution</button>
+<div id="t9" class="hide task"><ol><li>Load and inspect CSV.</li><li>Create X/y and 80:20 split.</li><li>Scale features.</li><li>Train Linear, Ridge and Lasso.</li><li>Compare MAE, RMSE, train/test R².</li><li>Tune alpha using CV.</li><li>Compare coefficients and write conclusion.</li></ol></div>
+<div id="s9" class="hide sol"><h3>Complete Python Solution</h3><pre><code>import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import LinearRegression, Ridge, Lasso
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+
+df = pd.read_csv(&quot;09_ecommerce_revenue.csv&quot;)
+print(df.head())
+print(df.isnull().sum())
+
+X = df[[&#x27;Visitors&#x27;, &#x27;AdSpend&#x27;, &#x27;AvgSessionTime&#x27;, &#x27;ConversionRate&#x27;, &#x27;DiscountRate&#x27;]]
+y = df[&quot;Revenue&quot;]
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.20, random_state=42
+)
+
+models = {
+ &quot;Linear&quot;: Pipeline([(&quot;scale&quot;, StandardScaler()),(&quot;model&quot;, LinearRegression())]),
+ &quot;Ridge&quot;: Pipeline([(&quot;scale&quot;, StandardScaler()),(&quot;model&quot;, Ridge(alpha=1.0))]),
+ &quot;Lasso&quot;: Pipeline([(&quot;scale&quot;, StandardScaler()),(&quot;model&quot;, Lasso(alpha=0.1, max_iter=10000))])
+}
+
+for name, model in models.items():
+    model.fit(X_train, y_train)
+    pred = model.predict(X_test)
+    print(&quot;\n&quot;, name)
+    print(&quot;Train R2:&quot;, model.score(X_train, y_train))
+    print(&quot;Test R2:&quot;, r2_score(y_test, pred))
+    print(&quot;MAE:&quot;, mean_absolute_error(y_test, pred))
+    print(&quot;RMSE:&quot;, np.sqrt(mean_squared_error(y_test, pred)))
+
+# Ridge alpha tuning
+ridge = Pipeline([(&quot;scale&quot;,StandardScaler()),(&quot;model&quot;,Ridge())])
+grid = GridSearchCV(
+    ridge,
+    {&quot;model__alpha&quot;:[0.01,0.1,1,10,100]},
+    cv=5, scoring=&quot;r2&quot;
+)
+grid.fit(X_train,y_train)
+print(&quot;Best Ridge Alpha:&quot;,grid.best_params_)
+print(&quot;Ridge Test R2:&quot;,grid.score(X_test,y_test))
+
+# Lasso alpha tuning
+lasso = Pipeline([(&quot;scale&quot;,StandardScaler()),(&quot;model&quot;,Lasso(max_iter=10000))])
+lgrid = GridSearchCV(
+    lasso,
+    {&quot;model__alpha&quot;:[0.01,0.1,1,10,100]},
+    cv=5, scoring=&quot;r2&quot;
+)
+lgrid.fit(X_train,y_train)
+print(&quot;Best Lasso Alpha:&quot;,lgrid.best_params_)
+print(&quot;Lasso Test R2:&quot;,lgrid.score(X_test,y_test))
+
+# Coefficient comparison
+print(&quot;\nRidge coefficients:&quot;)
+print(dict(zip(X.columns,grid.best_estimator_.named_steps[&quot;model&quot;].coef_)))
+print(&quot;\nLasso coefficients:&quot;)
+print(dict(zip(X.columns,lgrid.best_estimator_.named_steps[&quot;model&quot;].coef_)))</code></pre></div></article><article><small>PRACTICAL 10</small><h2>Delivery Cost Prediction</h2>
+<div class="schema"><b>Features:</b><div><span>DistanceKM</span> <span>WeightKG</span> <span>TrafficScore</span> <span>FuelPrice</span> <span>DeliveryTime</span></div><p><b>Target:</b> DeliveryCost</p></div>
+<a href="10_delivery_cost.csv" download>⬇ Download CSV</a>
+<button onclick="tog('t10',this,'Show Tasks','Hide Tasks')">Show Tasks</button>
+<button class="purple" onclick="tog('s10',this,'Show Python Solution','Hide Python Solution')">Show Python Solution</button>
+<div id="t10" class="hide task"><ol><li>Load and inspect CSV.</li><li>Create X/y and 80:20 split.</li><li>Scale features.</li><li>Train Linear, Ridge and Lasso.</li><li>Compare MAE, RMSE, train/test R².</li><li>Tune alpha using CV.</li><li>Compare coefficients and write conclusion.</li></ol></div>
+<div id="s10" class="hide sol"><h3>Complete Python Solution</h3><pre><code>import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import LinearRegression, Ridge, Lasso
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+
+df = pd.read_csv(&quot;10_delivery_cost.csv&quot;)
+print(df.head())
+print(df.isnull().sum())
+
+X = df[[&#x27;DistanceKM&#x27;, &#x27;WeightKG&#x27;, &#x27;TrafficScore&#x27;, &#x27;FuelPrice&#x27;, &#x27;DeliveryTime&#x27;]]
+y = df[&quot;DeliveryCost&quot;]
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.20, random_state=42
+)
+
+models = {
+ &quot;Linear&quot;: Pipeline([(&quot;scale&quot;, StandardScaler()),(&quot;model&quot;, LinearRegression())]),
+ &quot;Ridge&quot;: Pipeline([(&quot;scale&quot;, StandardScaler()),(&quot;model&quot;, Ridge(alpha=1.0))]),
+ &quot;Lasso&quot;: Pipeline([(&quot;scale&quot;, StandardScaler()),(&quot;model&quot;, Lasso(alpha=0.1, max_iter=10000))])
+}
+
+for name, model in models.items():
+    model.fit(X_train, y_train)
+    pred = model.predict(X_test)
+    print(&quot;\n&quot;, name)
+    print(&quot;Train R2:&quot;, model.score(X_train, y_train))
+    print(&quot;Test R2:&quot;, r2_score(y_test, pred))
+    print(&quot;MAE:&quot;, mean_absolute_error(y_test, pred))
+    print(&quot;RMSE:&quot;, np.sqrt(mean_squared_error(y_test, pred)))
+
+# Ridge alpha tuning
+ridge = Pipeline([(&quot;scale&quot;,StandardScaler()),(&quot;model&quot;,Ridge())])
+grid = GridSearchCV(
+    ridge,
+    {&quot;model__alpha&quot;:[0.01,0.1,1,10,100]},
+    cv=5, scoring=&quot;r2&quot;
+)
+grid.fit(X_train,y_train)
+print(&quot;Best Ridge Alpha:&quot;,grid.best_params_)
+print(&quot;Ridge Test R2:&quot;,grid.score(X_test,y_test))
+
+# Lasso alpha tuning
+lasso = Pipeline([(&quot;scale&quot;,StandardScaler()),(&quot;model&quot;,Lasso(max_iter=10000))])
+lgrid = GridSearchCV(
+    lasso,
+    {&quot;model__alpha&quot;:[0.01,0.1,1,10,100]},
+    cv=5, scoring=&quot;r2&quot;
+)
+lgrid.fit(X_train,y_train)
+print(&quot;Best Lasso Alpha:&quot;,lgrid.best_params_)
+print(&quot;Lasso Test R2:&quot;,lgrid.score(X_test,y_test))
+
+# Coefficient comparison
+print(&quot;\nRidge coefficients:&quot;)
+print(dict(zip(X.columns,grid.best_estimator_.named_steps[&quot;model&quot;].coef_)))
+print(&quot;\nLasso coefficients:&quot;)
+print(dict(zip(X.columns,lgrid.best_estimator_.named_steps[&quot;model&quot;].coef_)))</code></pre></div></article></main>
+<script>function tog(id,b,a,c){let e=document.getElementById(id),o=e.style.display==='block';e.style.display=o?'none':'block';b.innerText=o?a:c}</script></body></html>
