@@ -1,0 +1,94 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Regularization Practical Lab</title>
+<style>*{box-sizing:border-box}body{margin:0;background:#07131f;color:#eef8ff;font-family:Segoe UI,Arial}main{max-width:1050px;margin:auto;padding:40px 20px}header,article{background:#0c2233;border:1px solid #31536a;border-radius:22px;padding:28px;margin-bottom:20px}h1{font-size:clamp(38px,6vw,64px);margin:5px 0}header p,.tasks{color:#c9dce7;line-height:1.7}small{color:#75d9ff;font-weight:bold;letter-spacing:1.5px}.schema{background:#071721;padding:15px;border-radius:12px;margin:15px 0}.schema span{display:inline-block;background:#173b4e;color:#c5edff;padding:6px 9px;border-radius:7px;margin:7px 5px 0 0;font-size:13px}a,button{display:inline-block;border:0;text-decoration:none;color:#fff;font-weight:bold;padding:12px 16px;border-radius:9px;margin:5px 7px 5px 0;cursor:pointer}a{background:#17765e}button{background:#1c7398}.tasks{display:none;background:#06131d;padding:15px;border-radius:12px;margin-top:12px}</style></head>
+<body><main><header><small>ML • PRACTICAL LAB</small><h1>Regularization — 10 Practical Assignments</h1><p>प्रत्येक problem साठी वेगळी 300-row CSV file आहे. CSV download करून Colab/Jupyter मध्ये direct practical करा.</p><a href="regularization_all_datasets.zip" download>⬇ Download All 10 CSV Files</a></header><article><small>PRACTICAL 01 • 300 ROWS</small><h2>House Price Prediction</h2>
+<div class="schema"><b>Features:</b><div><span>Area</span><span>Bedrooms</span><span>HouseAge</span><span>DistanceFromCity</span><span>LocationScore</span></div><p><b>Target:</b> Price</p></div>
+<a href="01_house_price.csv" download>⬇ Download CSV Dataset</a>
+<button onclick="tog('x1',this)">Show Tasks</button>
+<div class="tasks" id="x1"><ol>
+<li>Load CSV with pandas and inspect data.</li><li>Check null values and statistics.</li><li>Create X and y.</li>
+<li>Train-test split 80:20.</li><li>Use StandardScaler.</li><li>Train Linear Regression baseline.</li>
+<li>Train Ridge and Lasso.</li><li>Compare MAE, RMSE and R².</li>
+<li>Test alpha = 0.01, 0.1, 1, 10, 100.</li><li>Compare coefficients and write a business conclusion.</li>
+</ol></div></article><article><small>PRACTICAL 02 • 300 ROWS</small><h2>Employee Salary Prediction</h2>
+<div class="schema"><b>Features:</b><div><span>Experience</span><span>SkillScore</span><span>Projects</span><span>Certifications</span><span>InterviewScore</span></div><p><b>Target:</b> Salary</p></div>
+<a href="02_employee_salary.csv" download>⬇ Download CSV Dataset</a>
+<button onclick="tog('x2',this)">Show Tasks</button>
+<div class="tasks" id="x2"><ol>
+<li>Load CSV with pandas and inspect data.</li><li>Check null values and statistics.</li><li>Create X and y.</li>
+<li>Train-test split 80:20.</li><li>Use StandardScaler.</li><li>Train Linear Regression baseline.</li>
+<li>Train Ridge and Lasso.</li><li>Compare MAE, RMSE and R².</li>
+<li>Test alpha = 0.01, 0.1, 1, 10, 100.</li><li>Compare coefficients and write a business conclusion.</li>
+</ol></div></article><article><small>PRACTICAL 03 • 300 ROWS</small><h2>Used Car Price Prediction</h2>
+<div class="schema"><b>Features:</b><div><span>CarAge</span><span>KMDriven</span><span>Mileage</span><span>EngineCC</span><span>OwnerCount</span></div><p><b>Target:</b> SellingPrice</p></div>
+<a href="03_used_car_price.csv" download>⬇ Download CSV Dataset</a>
+<button onclick="tog('x3',this)">Show Tasks</button>
+<div class="tasks" id="x3"><ol>
+<li>Load CSV with pandas and inspect data.</li><li>Check null values and statistics.</li><li>Create X and y.</li>
+<li>Train-test split 80:20.</li><li>Use StandardScaler.</li><li>Train Linear Regression baseline.</li>
+<li>Train Ridge and Lasso.</li><li>Compare MAE, RMSE and R².</li>
+<li>Test alpha = 0.01, 0.1, 1, 10, 100.</li><li>Compare coefficients and write a business conclusion.</li>
+</ol></div></article><article><small>PRACTICAL 04 • 300 ROWS</small><h2>Insurance Cost Prediction</h2>
+<div class="schema"><b>Features:</b><div><span>Age</span><span>BMI</span><span>Children</span><span>ExerciseScore</span><span>RiskScore</span></div><p><b>Target:</b> InsuranceCost</p></div>
+<a href="04_insurance_cost.csv" download>⬇ Download CSV Dataset</a>
+<button onclick="tog('x4',this)">Show Tasks</button>
+<div class="tasks" id="x4"><ol>
+<li>Load CSV with pandas and inspect data.</li><li>Check null values and statistics.</li><li>Create X and y.</li>
+<li>Train-test split 80:20.</li><li>Use StandardScaler.</li><li>Train Linear Regression baseline.</li>
+<li>Train Ridge and Lasso.</li><li>Compare MAE, RMSE and R².</li>
+<li>Test alpha = 0.01, 0.1, 1, 10, 100.</li><li>Compare coefficients and write a business conclusion.</li>
+</ol></div></article><article><small>PRACTICAL 05 • 300 ROWS</small><h2>Advertising Sales Prediction</h2>
+<div class="schema"><b>Features:</b><div><span>TVAds</span><span>SocialMediaAds</span><span>SearchAds</span><span>EmailCampaigns</span><span>Discount</span></div><p><b>Target:</b> Sales</p></div>
+<a href="05_advertising_sales.csv" download>⬇ Download CSV Dataset</a>
+<button onclick="tog('x5',this)">Show Tasks</button>
+<div class="tasks" id="x5"><ol>
+<li>Load CSV with pandas and inspect data.</li><li>Check null values and statistics.</li><li>Create X and y.</li>
+<li>Train-test split 80:20.</li><li>Use StandardScaler.</li><li>Train Linear Regression baseline.</li>
+<li>Train Ridge and Lasso.</li><li>Compare MAE, RMSE and R².</li>
+<li>Test alpha = 0.01, 0.1, 1, 10, 100.</li><li>Compare coefficients and write a business conclusion.</li>
+</ol></div></article><article><small>PRACTICAL 06 • 300 ROWS</small><h2>Student Score Prediction</h2>
+<div class="schema"><b>Features:</b><div><span>StudyHours</span><span>Attendance</span><span>Assignments</span><span>PreviousScore</span><span>PracticeTests</span></div><p><b>Target:</b> FinalScore</p></div>
+<a href="06_student_score.csv" download>⬇ Download CSV Dataset</a>
+<button onclick="tog('x6',this)">Show Tasks</button>
+<div class="tasks" id="x6"><ol>
+<li>Load CSV with pandas and inspect data.</li><li>Check null values and statistics.</li><li>Create X and y.</li>
+<li>Train-test split 80:20.</li><li>Use StandardScaler.</li><li>Train Linear Regression baseline.</li>
+<li>Train Ridge and Lasso.</li><li>Compare MAE, RMSE and R².</li>
+<li>Test alpha = 0.01, 0.1, 1, 10, 100.</li><li>Compare coefficients and write a business conclusion.</li>
+</ol></div></article><article><small>PRACTICAL 07 • 300 ROWS</small><h2>Rental Price Prediction</h2>
+<div class="schema"><b>Features:</b><div><span>Area</span><span>Bedrooms</span><span>Distance</span><span>Floor</span><span>AmenityScore</span></div><p><b>Target:</b> MonthlyRent</p></div>
+<a href="07_rental_price.csv" download>⬇ Download CSV Dataset</a>
+<button onclick="tog('x7',this)">Show Tasks</button>
+<div class="tasks" id="x7"><ol>
+<li>Load CSV with pandas and inspect data.</li><li>Check null values and statistics.</li><li>Create X and y.</li>
+<li>Train-test split 80:20.</li><li>Use StandardScaler.</li><li>Train Linear Regression baseline.</li>
+<li>Train Ridge and Lasso.</li><li>Compare MAE, RMSE and R².</li>
+<li>Test alpha = 0.01, 0.1, 1, 10, 100.</li><li>Compare coefficients and write a business conclusion.</li>
+</ol></div></article><article><small>PRACTICAL 08 • 300 ROWS</small><h2>Startup Profit Prediction</h2>
+<div class="schema"><b>Features:</b><div><span>RDSpend</span><span>MarketingSpend</span><span>EmployeeCount</span><span>MarketScore</span><span>OperationalCost</span></div><p><b>Target:</b> Profit</p></div>
+<a href="08_startup_profit.csv" download>⬇ Download CSV Dataset</a>
+<button onclick="tog('x8',this)">Show Tasks</button>
+<div class="tasks" id="x8"><ol>
+<li>Load CSV with pandas and inspect data.</li><li>Check null values and statistics.</li><li>Create X and y.</li>
+<li>Train-test split 80:20.</li><li>Use StandardScaler.</li><li>Train Linear Regression baseline.</li>
+<li>Train Ridge and Lasso.</li><li>Compare MAE, RMSE and R².</li>
+<li>Test alpha = 0.01, 0.1, 1, 10, 100.</li><li>Compare coefficients and write a business conclusion.</li>
+</ol></div></article><article><small>PRACTICAL 09 • 300 ROWS</small><h2>Ecommerce Revenue Prediction</h2>
+<div class="schema"><b>Features:</b><div><span>Visitors</span><span>AdSpend</span><span>AvgSessionTime</span><span>ConversionRate</span><span>DiscountRate</span></div><p><b>Target:</b> Revenue</p></div>
+<a href="09_ecommerce_revenue.csv" download>⬇ Download CSV Dataset</a>
+<button onclick="tog('x9',this)">Show Tasks</button>
+<div class="tasks" id="x9"><ol>
+<li>Load CSV with pandas and inspect data.</li><li>Check null values and statistics.</li><li>Create X and y.</li>
+<li>Train-test split 80:20.</li><li>Use StandardScaler.</li><li>Train Linear Regression baseline.</li>
+<li>Train Ridge and Lasso.</li><li>Compare MAE, RMSE and R².</li>
+<li>Test alpha = 0.01, 0.1, 1, 10, 100.</li><li>Compare coefficients and write a business conclusion.</li>
+</ol></div></article><article><small>PRACTICAL 10 • 300 ROWS</small><h2>Delivery Cost Prediction</h2>
+<div class="schema"><b>Features:</b><div><span>DistanceKM</span><span>WeightKG</span><span>TrafficScore</span><span>FuelPrice</span><span>DeliveryTime</span></div><p><b>Target:</b> DeliveryCost</p></div>
+<a href="10_delivery_cost.csv" download>⬇ Download CSV Dataset</a>
+<button onclick="tog('x10',this)">Show Tasks</button>
+<div class="tasks" id="x10"><ol>
+<li>Load CSV with pandas and inspect data.</li><li>Check null values and statistics.</li><li>Create X and y.</li>
+<li>Train-test split 80:20.</li><li>Use StandardScaler.</li><li>Train Linear Regression baseline.</li>
+<li>Train Ridge and Lasso.</li><li>Compare MAE, RMSE and R².</li>
+<li>Test alpha = 0.01, 0.1, 1, 10, 100.</li><li>Compare coefficients and write a business conclusion.</li>
+</ol></div></article></main>
+<script>function tog(i,b){let e=document.getElementById(i),o=e.style.display==='block';e.style.display=o?'none':'block';b.innerText=o?'Show Tasks':'Hide Tasks'}</script></body></html>
